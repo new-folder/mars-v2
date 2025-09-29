@@ -1,0 +1,138 @@
+.time-based-page {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 412px;
+  height: 917px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1rem;
+  transition: background-image 2s ease-in-out;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.time-based-page.day {
+  background-image: url('/public/images/day-bg.jpg');
+}
+
+.time-based-page.night {
+  background-image: url('/public/images/night-bg.jpg');
+}
+
+.main-square {
+    width: 412px;
+    height: 474px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url('/public/images/main-square.png');
+}
+
+.main-elements {
+    position: absolute;
+    width: 385.82px;
+    height: 400px;
+    left: calc(50% - 385.82px/2 - 1.91px);
+    bottom: 100px;
+}
+
+.cargo-academy {
+    position: absolute;
+    width: 88.1px;
+    height: 88.1px;
+    left: 0;
+    top: 156.95px;
+    background-image: url('/public/images/cargo_academy.png');
+    z-index: 1;
+}
+
+.pilot-academy {
+    position: absolute;
+    width: 137.72px;
+    height: 137.72px;
+    left: 6px;
+    top: 219px;
+    background-image: url('/public/images/pilot_academy.png');
+
+}
+
+.call-station {
+    position: absolute;
+    width: 120.51px;
+    height: 120.51px;
+    left: 162.06px;
+    top: 280px;
+    background: url('/public/images/call_station.png');
+
+}
+
+.corporate_center {
+    position: absolute;
+    width: 114.43px;
+    height: 114.43px;
+    left: 273.46px;
+    top: 224px;
+    background: url('/public/images/corporate_center.png');
+
+}
+
+.bank {
+    position: absolute;
+    width: 82.03px;
+    height: 82.03px;
+    left: 314.97px;
+    top: 150px;
+    background: url('/public/images/bank.png');
+}
+
+.launchpad {
+    position: absolute;
+    width: 217.72px;
+    height: 217.72px;
+    left: 98.27px;
+    top: 74px;
+    background: url('/public/images/launchpad.png');
+}
+
+.hall {
+    position: absolute;
+    width: 83.54px;
+    height: 83.54px;
+    left: 71.94px;
+    top: 106px;
+    background: url('/public/images/hall.png');
+    z-index: 2;
+}
+
+.hangar {
+    position: absolute;
+    width: 156.96px;
+    height: 156.96px;
+    left: 200.54px;
+    top: 0;
+    background: url('/public/images/hangar.png');
+}
+
+.launchpad {
+    position: absolute;
+    width: 217.72px;
+    height: 217.72px;
+    left: 98.27px;
+    top: 74px;
+    background: url('/public/images/launchpad.png');
+}
+
+.road {
+    position: absolute;
+    width: 132.66px;
+    height: 132.66px;
+    left: 180.29px;
+    top: 124px;
+    background: url('/public/images/road.png');
+    z-index: -1;
+}

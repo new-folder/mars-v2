@@ -1,0 +1,168 @@
+.hall-page {
+    width: 412px;
+    height: 917px;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;  
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('/public/images/hall-room.jpg'); 
+    padding: 20px;
+}
+
+.nft-card {
+position: absolute;
+width: 174px;
+height: 230px;
+left: calc(50% - 174px/2);
+top: 210px;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 16px 31px;
+
+border-radius: 25px;
+
+font-family: 'Roboto Condensed';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 23px;
+text-align: center;
+color: #fff;
+
+}
+
+
+.nft-card img {
+  margin: 0 0 8px;
+}
+.nft-card p {
+  margin: 0 0 8px;
+}
+
+.nft-mars {
+    background: #8F0000;
+    border: 2px solid #FF0000;
+    box-shadow: 0px 0px 10px 1px #FF0000;
+}
+
+.nft-venus {
+    background: #C46900;
+    border: 2px solid #FF8437;
+    box-shadow: 0px 0px 10px 1px #FF8437;
+}
+
+.nft-moon {
+    background: #003651;
+    border: 2px solid #4D909B;
+    box-shadow: 0px 0px 10px 1px #4D909B;
+}
+
+.hall-info-block .hall-time {
+  margin-top: 16px;
+  font-family: 'Dotf1';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+}
+
+/* Контейнер для элементов - используем Grid */
+/* Упрощенная версия с Flexbox */
+.hall-elements-container {
+    height: 349px;
+    width: 100%;
+    max-width: 900px;
+    position: absolute;
+    bottom: 177px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hall-element {
+    width: 79px;
+    height: 79px;
+    position: absolute;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    bottom: 96px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+
+.mars {
+    background-image: url('/public/images/view-mars.png');
+}
+
+.venus {
+    background-image: url('/public/images/view-venus.png');
+}
+
+.moon {
+    background-image: url('/public/images/view-moon.png');
+}
+
+.hall-element-active {
+    width: 175px;
+    height: 175px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 48px;
+    filter: drop-shadow(0px 6px 20px rgba(253, 253, 253, 0.7));
+    z-index: 0;
+}
+
+.hall-element-active::after {
+    content: "";
+    position: absolute;
+    left: calc(50% - 271px/2);
+    top: calc(50% - 271px/2);
+    width: 271px;
+    height: 271px;
+    border-radius: 50%;
+    animation: delayedFadeIn 1s ease-in-out;
+}
+
+@keyframes delayedFadeIn {
+    0% {
+        opacity: 0;
+    }
+    66% {
+        opacity: 0; 
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.mars.hall-element-active::after {
+    border: 1px solid #8F0000;
+    box-shadow: 0px 0px 20px 1px #FF0000;
+}
+
+
+.venus.hall-element-active::after {
+border: 1px solid #C46900;
+box-shadow: 0px 0px 20px 1px #FF8437;
+}
+
+.moon.hall-element-active::after {
+    border: 1px solid #003651;
+    box-shadow: 0px 0px 20px 1px #4D909B;
+}
+
+.hall-element-side.left {
+  left: 15%;
+  transform: translateX(-50%);
+}
+
+.hall-element-side.right {
+  left: 85%;
+  transform: translateX(-50%);
+}
+
+

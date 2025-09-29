@@ -1,0 +1,146 @@
+@font-face {
+  font-family: 'DotF1';
+  src: local('DotF1'),
+       url('/public/fonts/dotf1.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.hangar-page {
+    width: 412px;
+    height: 917px;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;  
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('/public/images/hangar-room.png');
+    padding: 20px;
+}
+
+.hangar-info-block {
+  position: absolute;
+  width: 306px;
+  height: 195px;
+  left: calc(50% - 306px/2);
+  top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  text-align: center;
+  color: #261709; 
+}
+
+
+.hangar-info-block p {
+  margin: 0 0 8px;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.hangar-info-block .hangar-time {
+  margin-top: 16px;
+  font-family: 'Dotf1';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+}
+
+.mars-rocket-info {
+    background-image: url('/public/images/mars-rocket-info.png');
+}
+
+.venus-rocket-info {
+    background-image: url('/public/images/venus-rocket-info.png');
+}
+
+.moon-rocket-info {
+    background-image: url('/public/images/moon-rocket-info.png');
+}
+
+/* Контейнер для элементов - используем Grid */
+/* Упрощенная версия с Flexbox */
+.hangar-elements-container {
+    height: 349px;
+    width: 100%;
+    max-width: 900px;
+    position: absolute;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hangar-element {
+  position: absolute;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  bottom: 65px;
+}
+
+.mars-rocket {
+    width: 149px;
+    height: 237px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('/public/images/mars-rocket-closed.png'); 
+}
+
+.venus-rocket {
+    width: 102px;
+    height: 207px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('/public/images/venus-rocket-closed.png'); 
+}
+
+
+.moon-rocket {
+    width: 93px;
+    height: 175px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('/public/images/moon-rocket-closed.png'); 
+}
+
+.hangar-element-active {
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.mars-rocket.hangar-element-active{
+    width: 219px;
+    height: 349px;
+}
+.venus-rocket.hangar-element-active{
+    width: 149px;
+    height: 333px;
+}
+
+.moon-rocket.hangar-element-active{
+    width: 137px;
+    height: 258px;
+}
+
+.hangar-element-side.left {
+  left: 19%;
+  transform: translateX(-50%) translateY(-65px);
+}
+
+.hangar-element-side.right {
+  left: 81%;
+  transform: translateX(-50%) translateY(-65px);
+}
+
+                
