@@ -1,0 +1,37 @@
+{
+  "nfts": [
+    {
+      "id": 0,
+      "name": "NFT Name",
+      "fullName": "ELITE MARS CARGO",
+      "bonus": "20% bonus 3x power for the flight",
+      "img": "../images/nft-mars.jpg",
+      "link": "mars",
+      "speed": "+ 20%",
+      "effect": "3x power for flight",
+      "buy": "true"
+    },
+    {
+      "id": 1,
+      "name": "NFT Name",
+      "fullName": "ELITE MOON CARGO",
+      "bonus": "20% bonus 3x power for the flight",
+      "img": "../images/nft-moon.jpg",
+      "link": "moon",
+      "speed": "+ 20%",
+      "effect": "3x power for flight",
+      "buy": "false"
+    },
+    {
+      "id": 2,
+      "name": "NFT Name",
+      "fullName": "ELITE VENUS CARGO",
+      "bonus": "20% bonus 3x power for the flight",
+      "img": "../images/nft-venus.jpg",
+      "link": "venus",
+      "speed": "+ 20%",
+      "effect": "3x power for flight",
+      "buy": "false"
+    }
+  ]
+}

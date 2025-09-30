@@ -1,0 +1,87 @@
+import React, { useState, useEffect } from 'react';
+import './HallPage.css';
+import dbData from './db.json';
+
+const HallNft = ({ nft}) => {
+  const [nftData, setNftData] = useState(nft);
+  const [database, setDatabase] = useState(dbData);
+
+  useEffect(() => {
+    setDatabase(dbData);
+  }, []);
+
+  const handleBuyNFT = () => {
+    if (!database || !nftData) return;
+
+    // Обновляем локальную базу данных
+    const updatedNfts = database.nfts.map(item => 
+      item.id === nftData.id ? { ...item, buy: "true" } : item
+    );
+
+    const updatedDatabase = { ...database, nfts: updatedNfts };
+    
+    // Обновляем состояние
+    setDatabase(updatedDatabase);
+    setNftData({ ...nftData, buy: "true" });
+    
+    console.log(`NFT ${nftData.fullName} purchased!`);
+  };
+
+  if (!nftData) {
+    return <div>Loading NFT...</div>;
+  }
+
+  return (
+    <div className={`nft-page`}>
+        <div className={`nft-container ${nftData.link}-nft`}>            
+            <div className="nft-certificate">
+                <h2>NFT Certificate of Ownership</h2>
+                
+                <div className="nft-image">
+                <img 
+                    src={nftData.img} 
+                    alt={nftData.fullName}
+                />
+                </div>
+                
+                <div className="nft-details">
+                <h3>{nftData.fullName}</h3>
+                
+                <div className="nft-specs">
+                    <p className="speed">
+                    <span className="value">{nftData.speed} speed</span>
+                    </p>
+                    
+                    <p className="effect">
+                    <span className="label">Effect: </span>
+                    <span className="value">{nftData.effect}</span>
+                    </p>
+                    
+                    <p className="linked-planet">
+                    <span className="label">Linked planet: </span>
+                    <span className="value">{nftData.link}</span>
+                    </p>
+                </div>
+                
+                <div className="nft-purchase">
+                    {nftData.buy === "true" ? (
+                    <div className="already-purchased">
+                        <p>✓ Куплено</p>
+                    </div>
+                    ) : (
+                    <button 
+                        className="buy-button"
+                        onClick={handleBuyNFT}
+                    >
+                        Buy
+                    </button>
+                    )}
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  );
+};
+
+export default HallNft;

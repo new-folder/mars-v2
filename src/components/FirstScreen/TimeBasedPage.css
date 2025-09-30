@@ -58,6 +58,7 @@
     left: 6px;
     top: 219px;
     background-image: url('/public/images/pilot_academy.png');
+    z-index: 2;
 
 }
 
@@ -68,6 +69,7 @@
     left: 162.06px;
     top: 280px;
     background: url('/public/images/call_station.png');
+    z-index: 2;
 
 }
 
@@ -78,6 +80,7 @@
     left: 273.46px;
     top: 224px;
     background: url('/public/images/corporate_center.png');
+    z-index: 2;
 
 }
 
@@ -88,6 +91,7 @@
     left: 314.97px;
     top: 150px;
     background: url('/public/images/bank.png');
+    z-index: 2;
 }
 
 .launchpad {
@@ -97,6 +101,7 @@
     left: 98.27px;
     top: 74px;
     background: url('/public/images/launchpad.png');
+    z-index: 1;
 }
 
 .hall {
@@ -116,16 +121,9 @@
     left: 200.54px;
     top: 0;
     background: url('/public/images/hangar.png');
+    z-index: 2;
 }
 
-.launchpad {
-    position: absolute;
-    width: 217.72px;
-    height: 217.72px;
-    left: 98.27px;
-    top: 74px;
-    background: url('/public/images/launchpad.png');
-}
 
 .road {
     position: absolute;

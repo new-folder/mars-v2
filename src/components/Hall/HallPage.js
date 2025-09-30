@@ -1,60 +1,64 @@
-import React, { useState } from 'react'; // Добавлен импорт useState
+import React, { useState, useEffect } from 'react';
 import './HallPage.css';
+import dbData from './db.json';
+import HallNft from './HallNft'; 
 
 const HallPage = () => {
-  const [activeIndex, setActiveIndex] = useState(1);
-  const [prevActiveIndex, setPrevActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [prevActiveIndex, setPrevActiveIndex] = useState(0);
+  const [nfts, setNfts] = useState([]);
+  const [showHallNft, setShowHallNft] = useState(false);
+  const [selectedNFT, setSelectedNFT] = useState(null);
 
-  const elements = [
-    {
-      id: 0,
-      name: "NFT Name",
-      bonus: "20% bonus 3x power for the flight",
-      img: '../images/nft-mars.jpg',
-      type: "mars"
-    },
-    {
-      id: 1,
-      name: "NFT Name",
-      bonus: "20% bonus 3x power for the flight",
-      img: '../images/nft-moon.jpg',
-      type: "moon"
-    },
-    {
-      id: 2,
-      name: "NFT Name",
-      bonus: "20% bonus 3x power for the flight",
-      img: '../images/nft-venus.jpg',
-      type: "venus"
-    }
-  ];
+  useEffect(() => {
+    setNfts(dbData.nfts);
+  }, []);
 
   const handleElementClick = (index) => {
     if (index === activeIndex) return;
-    
     setPrevActiveIndex(activeIndex);
     setActiveIndex(index);
   };
 
-  const activeElement = elements[activeIndex];
-  const sideIndices = elements.map((_, index) => index).filter(i => i !== activeIndex);
+  // Обработчик для показа детальной страницы NFT
+  const handleNFTClick = (nft) => {
+    setSelectedNFT(nft);
+    setShowHallNft(true);
+  };
+
+  // Если показываем HallNft, рендерим его
+  if (showHallNft && selectedNFT) {
+    return (
+      <HallNft 
+        nft={selectedNFT} 
+      />
+    );
+  }
+
+  if (!nfts || nfts.length === 0) {
+    return <div className="hall-page">No NFTs found</div>;
+  }
+
+  const activeElement = nfts[activeIndex];
+  const sideIndices = nfts.map((_, index) => index).filter(i => i !== activeIndex);
 
   return (
     <div className="hall-page">
-      {/* Информационный блок */}
-      <div className={`nft-card nft-${activeElement.type}`}>
+      <div 
+        className={`nft-card nft-${activeElement.link}`}
+        onClick={() => handleNFTClick(activeElement)}
+      >
         <p>{activeElement.name}</p>
         <img 
-            src={activeElement.img} 
-            alt={activeElement.name}
-            className="rocket-image"
-          />
+          src={activeElement.img} 
+          alt={activeElement.name}
+          className="hall-nft-image"
+        />
         <p className="hall-time">{activeElement.bonus}</p>
       </div>
 
-      {/* Контейнер для элементов */}
       <div className="hall-elements-container">
-        {elements.map((element, index) => {
+        {nfts.map((element, index) => {
           const isActive = index === activeIndex;
           const wasActive = index === prevActiveIndex;
           const position = index === sideIndices[0] ? 'left' : 
@@ -63,7 +67,7 @@ const HallPage = () => {
           return (
             <div
               key={element.id}
-              className={`hall-element ${element.type}
+              className={`hall-element ${element.link}
                 ${isActive ? 'hall-element-active' : 'hall-element-side'}
                 ${position}
                 ${wasActive && !isActive ? 'sliding-out' : ''}
