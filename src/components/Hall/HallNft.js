@@ -66,7 +66,7 @@ const HallNft = ({ nft}) => {
                 <div className="nft-purchase">
                     {nftData.buy === "true" ? (
                     <div className="already-purchased">
-                        <p>✓ Куплено</p>
+                        <p>01M:22D:13h:06m</p>
                     </div>
                     ) : (
                     <button 

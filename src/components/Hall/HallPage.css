@@ -203,10 +203,27 @@ box-shadow: 0px 0px 20px 1px #FF8437;
 
 }
 
+.nft-container::after {
+    content: '';
+    position: absolute;
+    width: 231px;
+    height: 45px;
+    left: calc(50% - 231px/2 + 0.5px);
+    top: calc(50% - 45px/2 - 344px);    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
 .mars-nft {
     background: #8F0000;
     border: 1px solid #FF0000;
     box-shadow: 0px 0px 10px #FF0000;
+}
+
+.mars-nft::after {
+    background-image: url('/public/images/nft-mars-wings.png'); 
 }
 
 .moon-nft {
@@ -215,11 +232,21 @@ box-shadow: 0px 0px 20px 1px #FF8437;
     box-shadow: 0px 0px 10px #4D909B;
 }
 
+.moon-nft::after {
+    background-image: url('/public/images/nft-moon-wings.png'); 
+}
+
+
 .venus-nft {
     background: #C46900;
     border: 1px solid #FF8437;
     box-shadow: 0px 0px 10px #FF8437;
 }
+
+.venus-nft::after {
+    background-image: url('/public/images/nft-venus-wings.png'); 
+}
+
 
 .nft-container h2 {
     margin: 0 0 20px;
@@ -254,7 +281,6 @@ box-shadow: 0px 0px 20px 1px #FF8437;
     margin: 0 0 20px;
     font-weight: 700;
     font-size: 24px;
-    line-height: 28px;
     text-transform: uppercase;
 
 }
@@ -299,4 +325,34 @@ font-size: 20px;
 
 .venus-nft .buy-button {
     background: #9C5402;
+}
+
+.already-purchased {
+    width: 190px;
+    height: 96px;
+    padding-top: 65px;
+    position: absolute;
+    right: 12px;
+    bottom: 26px;
+    transform: rotate(-15deg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.already-purchased p {
+    margin: 0;
+}
+
+.mars-nft .already-purchased {
+    background-image: url('/public/images/approved-mars.png'); 
+}
+
+.moon-nft .already-purchased {
+    background-image: url('/public/images/approved-moon.png'); 
+}
+
+.venus-nft .already-purchased {
+    background-image: url('/public/images/approved-venus.png'); 
 }

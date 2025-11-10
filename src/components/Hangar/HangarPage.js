@@ -1,52 +1,82 @@
-import React, { useState } from 'react'; // Добавлен импорт useState
+import React, { useState, useEffect } from 'react';
 import './HangarPage.css';
+import hangarData from './hangarData.json';
+import ExpeditionDetails from './ExpeditionDetails';
 
-const HangarPage = () => {
+const HangarPage = ({ onBack, onMain, onNavigate }) => {
   const [activeIndex, setActiveIndex] = useState(1);
   const [prevActiveIndex, setPrevActiveIndex] = useState(1);
+  const [elements, setElements] = useState([]);
+  const [showExpeditionDetails, setShowExpeditionDetails] = useState(false);
+  const [selectedElement, setSelectedElement] = useState(null);
 
-  const elements = [
-    {
-      id: 0,
-      price: "29$",
-      time: "01M:22d:14m:15s",
-      type: "mars-rocket"
-    },
-    {
-      id: 1,
-      price: "29$",
-      time: "01M:22d:14m:15s",
-      type: "venus-rocket"
-    },
-    {
-      id: 2,
-      price: "29$",
-      time: "01M:22d:14m:15s",
-      type: "moon-rocket"
+  useEffect(() => {
+    setElements(hangarData.elements);
+  }, []);
+
+  const handleNavigateToInsurance = (element) => {
+    if (onNavigate) {
+      onNavigate('insurance', { rocketElement: element });
     }
-  ];
+  };
 
   const handleElementClick = (index) => {
-    if (index === activeIndex) return;
-    
-    setPrevActiveIndex(activeIndex);
-    setActiveIndex(index);
+    if (index === activeIndex) {
+      handleExpeditionClick(elements[index]);
+    } else {
+      setPrevActiveIndex(activeIndex);
+      setActiveIndex(index);
+    }
   };
+
+  const handleExpeditionClick = (element) => {
+    setSelectedElement(element);
+    setShowExpeditionDetails(true);
+  };
+
+  const handleBackFromExpedition = () => {
+    setShowExpeditionDetails(false);
+    setSelectedElement(null);
+  };
+
+  // Добавляем обработчик возврата из InsurancePage
+  const handleBackFromInsurance = () => {
+    setShowExpeditionDetails(true);
+  };
+
+  if (showExpeditionDetails && selectedElement) {
+    return (
+      <ExpeditionDetails 
+        element={selectedElement} 
+        onBack={handleBackFromExpedition}
+        onNavigateToInsurance={handleNavigateToInsurance}
+        onBackFromInsurance={handleBackFromInsurance} // Передаем колбэк
+      />
+    );
+  }
+
+  if (elements.length === 0) {
+    return <div className="hangar-page">Loading...</div>;
+  }
 
   const activeElement = elements[activeIndex];
   const sideIndices = elements.map((_, index) => index).filter(i => i !== activeIndex);
 
   return (
     <div className="hangar-page">
-      {/* Информационный блок */}
-      <div className={`hangar-info-block ${activeElement.type}-info`}>
-        <p>{activeElement.price}</p>
+      <div className="back-button arrow-back" onClick={onBack}>
+      </div>
+      
+      <div 
+        className={`hangar-info-block ${activeElement.type}-info active-expedition`}
+        onClick={() => handleExpeditionClick(activeElement)}
+      >
+        <p className="hangar-info-main">{activeElement.price}</p>
         <p>cost of the expedition</p>
-        <p className="hangar-time">{activeElement.time}</p>
+        <p className="hangar-info-main">{activeElement.time}</p>
         <p>time to arrive</p>
       </div>
 
-      {/* Контейнер для элементов */}
       <div className="hangar-elements-container">
         {elements.map((element, index) => {
           const isActive = index === activeIndex;
@@ -64,6 +94,10 @@ const HangarPage = () => {
                 ${!wasActive && isActive ? 'sliding-in' : ''}`}
               onClick={() => handleElementClick(index)}
             >
+              {!isActive && (
+                <div className="side-element-preview">
+                </div>
+              )}
             </div>
           );
         })}

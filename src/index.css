@@ -10,7 +10,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.arrow-back {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  left: 16px;
+  top: 20px;
+  background: url(/public/images/arrow_back.svg) center no-repeat;
 }

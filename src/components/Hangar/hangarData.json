@@ -1,0 +1,46 @@
+{
+  "elements": [
+    {
+      "id": 0,
+      "price": "250 - 500$",
+      "time": "307 days",
+      "type": "mars-rocket",
+      "name": "Mars Explorer",
+      "image": "../images/rockets/mars-rocket.jpg",
+      "parts": [
+        { "id": 1, "name": "robot bay", "status": "open" },
+        { "id": 2, "name": "pilots", "status": "open" },
+        { "id": 3, "name": "cargo bay", "status": "close" },
+        { "id": 4, "name": "pets bay", "status": "open" }
+      ]
+    },
+    {
+      "id": 1,
+      "price": "100 - 200$",
+      "time": "15 days",
+      "type": "venus-rocket",
+      "name": "Venus Probe",
+      "image": "../images/rockets/venus-rocket.jpg",
+      "parts": [
+        { "id": 1, "name": "robot bay", "status": "open" },
+        { "id": 2, "name": "pilots", "status": "open" },
+        { "id": 3, "name": "cargo bay", "status": "close" },
+        { "id": 4, "name": "pets bay", "status": "open" }
+      ]
+    },
+    {
+      "id": 2,
+      "price": "25 - 50$",
+      "time": "7 days",
+      "type": "moon-rocket",
+      "name": "Lunar Lander",
+      "image": "../images/rockets/moon-rocket.jpg",
+      "parts": [
+        { "id": 1, "name": "robot bay", "status": "open" },
+        { "id": 2, "name": "pilots", "status": "open" },
+        { "id": 3, "name": "cargo bay", "status": "close" },
+        { "id": 4, "name": "pets bay", "status": "open" }
+      ]
+    }
+  ]
+}
