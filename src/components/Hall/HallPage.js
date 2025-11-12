@@ -3,7 +3,7 @@ import './HallPage.css';
 import dbData from './db.json';
 import HallNft from './HallNft'; 
 
-const HallPage = () => {
+const HallPage = ({ onBack, onMain, onNavigate }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [prevActiveIndex, setPrevActiveIndex] = useState(0);
   const [nfts, setNfts] = useState([]);
@@ -15,7 +15,11 @@ const HallPage = () => {
   }, []);
 
   const handleElementClick = (index) => {
-    if (index === activeIndex) return;
+    if (index === activeIndex) {
+      // Если кликаем на уже активный элемент - открываем детальную страницу
+      handleNFTClick(nfts[index]);
+      return;
+    }
     setPrevActiveIndex(activeIndex);
     setActiveIndex(index);
   };
@@ -26,7 +30,7 @@ const HallPage = () => {
     setShowHallNft(true);
   };
 
-  // Если показываем HallNft, рендерим его
+
   if (showHallNft && selectedNFT) {
     return (
       <HallNft 
@@ -39,24 +43,13 @@ const HallPage = () => {
     return <div className="hall-page">No NFTs found</div>;
   }
 
-  const activeElement = nfts[activeIndex];
   const sideIndices = nfts.map((_, index) => index).filter(i => i !== activeIndex);
 
   return (
     <div className="hall-page">
-      <div 
-        className={`nft-card nft-${activeElement.link}`}
-        onClick={() => handleNFTClick(activeElement)}
-      >
-        <p>{activeElement.name}</p>
-        <img 
-          src={activeElement.img} 
-          alt={activeElement.name}
-          className="hall-nft-image"
-        />
-        <p className="hall-time">{activeElement.bonus}</p>
-      </div>
-
+      
+      <div className="back-button arrow-back" onClick={onBack}></div>
+      <div className='hall-title'>Choose the planet</div>
       <div className="hall-elements-container">
         {nfts.map((element, index) => {
           const isActive = index === activeIndex;
@@ -77,6 +70,16 @@ const HallPage = () => {
             </div>
           );
         })}
+      </div>
+      <div className='hall-info'>
+        <div className='hall-text hall-text-large'>Mars
+        </div>
+        <div className='hall-text'>chosen planet
+        </div>
+        <div className='hall-text hall-text-large'>56,000,000km
+        </div>
+        <div className='hall-text'>distance
+        </div>
       </div>
     </div>
   );

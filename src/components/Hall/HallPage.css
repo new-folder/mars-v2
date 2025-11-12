@@ -7,61 +7,26 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url('/public/images/hall-room.jpg'); 
+    background-image: url('/public/images/hall-bg.jpg'); 
     padding: 20px;
 }
 
-.nft-card {
-position: absolute;
-width: 174px;
-height: 230px;
-left: calc(50% - 174px/2);
-top: 210px;
+.hall-title {
+    position: absolute;
+    width: 145px;
+    height: 84px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 96px;
+    font-family: 'Roboto Condensed';
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
 
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 16px 31px;
-
-border-radius: 25px;
-
-font-family: 'Roboto Condensed';
-font-style: normal;
-font-weight: 700;
-font-size: 20px;
-line-height: 23px;
-text-align: center;
-color: #fff;
-
-}
+    color: #FFFFFF;
 
 
-.nft-card img {
-    width: 90px;
-    height: 90px;
-    margin: 0 0 8px;
-}
-
-.nft-card p {
-  margin: 0 0 8px;
-}
-
-.nft-mars {
-    background: #8F0000;
-    border: 2px solid #FF0000;
-    box-shadow: 0px 0px 10px 1px #FF0000;
-}
-
-.nft-venus {
-    background: #C46900;
-    border: 2px solid #FF8437;
-    box-shadow: 0px 0px 10px 1px #FF8437;
-}
-
-.nft-moon {
-    background: #003651;
-    border: 2px solid #4D909B;
-    box-shadow: 0px 0px 10px 1px #4D909B;
 }
 
 .hall-info-block .hall-time {
@@ -72,16 +37,16 @@ color: #fff;
   font-size: 22px;
 }
 
-/* Контейнер для элементов - используем Grid */
-/* Упрощенная версия с Flexbox */
 .hall-elements-container {
-    height: 270px;
-    width: 100%;
-    max-width: 900px;
     position: absolute;
-    bottom: 177px;
+    width: 382px;
+    height: 377px;
     left: 50%;
     transform: translateX(-50%);
+    top: calc(50% - 377px/2 - 42px);
+    background: url(/public/images/planet-space-bg.png);
+    border-radius: 15px;
+
 }
 
 .hall-element {
@@ -89,7 +54,7 @@ color: #fff;
     height: 79px;
     position: absolute;
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    bottom: 96px;
+    top: 149px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -114,49 +79,11 @@ color: #fff;
     height: 175px;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 48px;
+    top: 101px;
     filter: drop-shadow(0px 6px 20px rgba(253, 253, 253, 0.7));
     z-index: 0;
 }
 
-.hall-element-active::after {
-    content: "";
-    position: absolute;
-    left: calc(50% - 271px/2);
-    top: calc(50% - 271px/2);
-    width: 271px;
-    height: 271px;
-    border-radius: 50%;
-    animation: delayedFadeIn 1s ease-in-out;
-}
-
-@keyframes delayedFadeIn {
-    0% {
-        opacity: 0;
-    }
-    66% {
-        opacity: 0; 
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.mars.hall-element-active::after {
-    border: 1px solid #8F0000;
-    box-shadow: 0px 0px 20px 1px #FF0000;
-}
-
-
-.venus.hall-element-active::after {
-border: 1px solid #C46900;
-box-shadow: 0px 0px 20px 1px #FF8437;
-}
-
-.moon.hall-element-active::after {
-    border: 1px solid #003651;
-    box-shadow: 0px 0px 20px 1px #4D909B;
-}
 
 .hall-element-side.left {
   left: 15%;
@@ -166,6 +93,33 @@ box-shadow: 0px 0px 20px 1px #FF8437;
 .hall-element-side.right {
   left: 85%;
   transform: translateX(-50%);
+}
+
+.hall-info {
+    position: absolute;
+    width: 281px;
+    height: 175px;
+    left: calc(50% - 281px/2 + 0.5px);
+    top: 635px;
+
+    filter: drop-shadow(0px 0px 10px #FFFFFF);
+    padding: 20px 0;
+    background: #10553D;
+    border: 3px solid #FFFFFF;
+    border-radius: 15px;
+}
+
+.hall-text {
+    margin-bottom: 13px;
+    font-size: 20px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+
+.hall-text-large {
+    margin-bottom: 0;
+    font-size: 32px;
 }
 
 

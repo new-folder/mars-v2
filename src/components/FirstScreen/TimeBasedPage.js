@@ -53,7 +53,7 @@ const TimeBasedPage = () => {
       const previousPage = newHistory[newHistory.length - 1];
       setCurrentPage(previousPage);
       setPageHistory(newHistory);
-      setPageProps({}); // Очищаем пропсы при возврате
+      setPageProps({}); 
     }
   };
 
@@ -68,7 +68,7 @@ const TimeBasedPage = () => {
   const navigationProps = {
     onBack: goBack,
     onMain: goToMain,
-    onNavigate: navigateTo // Теперь передаем улучшенную функцию
+    onNavigate: navigateTo 
   };
 
   // Рендер главной страницы

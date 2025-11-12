@@ -33,6 +33,7 @@ const HallNft = ({ nft}) => {
 
   return (
     <div className={`nft-page`}>
+        <div className="back-button arrow-back"></div>
         <div className={`nft-container ${nftData.link}-nft`}>            
             <div className="nft-certificate">
                 <h2>NFT Certificate of Ownership</h2>

@@ -43,12 +43,12 @@
 
 .cargo-academy {
     position: absolute;
-    width: 88.1px;
-    height: 88.1px;
-    left: 0;
-    top: 156.95px;
-    background-image: url('/public/images/cargo_academy.png');
-    z-index: 1;
+    width: 83.54px;
+    height: 83.54px;
+    left: 71.94px;
+    top: 106px;
+    background: url('/public/images/hall.png');
+    z-index: 2;
 }
 
 .pilot-academy {
@@ -106,12 +106,12 @@
 
 .hall {
     position: absolute;
-    width: 83.54px;
-    height: 83.54px;
-    left: 71.94px;
-    top: 106px;
-    background: url('/public/images/hall.png');
-    z-index: 2;
+    width: 88.1px;
+    height: 88.1px;
+    left: 0;
+    top: 156.95px;
+    background-image: url('/public/images/cargo_academy.png');
+    z-index: 1;
 }
 
 .hangar {
