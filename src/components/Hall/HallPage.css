@@ -7,13 +7,13 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url('/public/images/hall-bg.jpg'); 
+    background-image: url('/public/images/hall-bg.webp'); 
     padding: 20px;
 }
 
 .hall-title {
     position: absolute;
-    width: 145px;
+    width: 180px;
     height: 84px;
     left: 50%;
     transform: translateX(-50%);
@@ -44,7 +44,7 @@
     left: 50%;
     transform: translateX(-50%);
     top: calc(50% - 377px/2 - 42px);
-    background: url(/public/images/planet-space-bg.png);
+    background: url(/public/images/planet-space-bg.webp);
     border-radius: 15px;
 
 }
@@ -63,15 +63,15 @@
 
 
 .mars {
-    background-image: url('/public/images/view-mars.png');
+    background-image: url('/public/images/view-mars.webp');
 }
 
 .venus {
-    background-image: url('/public/images/view-venus.png');
+    background-image: url('/public/images/view-venus.webp');
 }
 
 .moon {
-    background-image: url('/public/images/view-moon.png');
+    background-image: url('/public/images/view-moon.webp');
 }
 
 .hall-element-active {
@@ -104,7 +104,7 @@
 
     filter: drop-shadow(0px 0px 10px #FFFFFF);
     padding: 20px 0;
-    background: #10553D;
+    background: rgba(17, 126, 126, 1);
     border: 3px solid #FFFFFF;
     border-radius: 15px;
 }
@@ -134,7 +134,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url('/public/images/hall-room.jpg'); 
+    background-image: url('/public/images/hall-room.webp');  
     padding: 20px;
 }
 
@@ -300,13 +300,20 @@ font-size: 20px;
 }
 
 .mars-nft .already-purchased {
-    background-image: url('/public/images/approved-mars.png'); 
+    background-image: url('/public/images/approved-mars.webp'); 
 }
 
 .moon-nft .already-purchased {
-    background-image: url('/public/images/approved-moon.png'); 
+    background-image: url('/public/images/approved-moon.webp'); 
 }
 
 .venus-nft .already-purchased {
-    background-image: url('/public/images/approved-venus.png'); 
+    background-image: url('/public/images/approved-venus.webp'); 
+}
+
+.mars-content {
+    background: #8F0000;
+    border: 1px solid #FF0000;
+    box-shadow: 0px 0px 10px #FF0000;
+    border-radius: 15px;
 }

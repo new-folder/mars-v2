@@ -145,7 +145,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url('/public/images/hall-room.jpg');
+    background-image: url('/public/images/hall-room.webp');
     padding: 20px;  
     font-family: 'Roboto Condensed';
     font-style: normal;
@@ -155,15 +155,15 @@
 }
 
 .expedition-details-mars-rocket {
-  background: linear-gradient(0deg, rgba(230, 106, 64, 0.3), rgba(230, 106, 64, 0.3)),  url('/public/images/hall-room.jpg');
+  background: linear-gradient(0deg, rgba(230, 106, 64, 0.3), rgba(230, 106, 64, 0.3)),  url('/public/images/hall-room.webp');
 }
 
 .expedition-details-venus-rocket {
-  background: linear-gradient(0deg, rgba(244, 162, 46, 0.2), rgba(244, 162, 46, 0.2)),  url('/public/images/hall-room.jpg');
+  background: linear-gradient(0deg, rgba(244, 162, 46, 0.2), rgba(244, 162, 46, 0.2)),  url('/public/images/hall-room.webp');
 }
 
 .expedition-details-moon-rocket {
-  background: linear-gradient(0deg, rgba(135, 215, 232, 0.3), rgba(135, 215, 232, 0.3)),  url('/public/images/hall-room.jpg');
+  background: linear-gradient(0deg, rgba(135, 215, 232, 0.3), rgba(135, 215, 232, 0.3)),  url('/public/images/hall-room.webp');
 }
 
 .expedition-nft {
@@ -553,7 +553,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url('/public/images/hall-room.jpg'); 
+    background-image: url('/public/images/hall-room.webp'); 
     padding: 20px;
 }
 

@@ -39,17 +39,13 @@ const HallPage = ({ onBack, onMain, onNavigate }) => {
     );
   }
 
-  if (!nfts || nfts.length === 0) {
-    return <div className="hall-page">No NFTs found</div>;
-  }
-
   const sideIndices = nfts.map((_, index) => index).filter(i => i !== activeIndex);
 
   return (
     <div className="hall-page">
       
       <div className="back-button arrow-back" onClick={onBack}></div>
-      <div className='hall-title'>Choose the planet</div>
+      <div className='hall-title'>Select flight direction</div>
       <div className="hall-elements-container">
         {nfts.map((element, index) => {
           const isActive = index === activeIndex;
