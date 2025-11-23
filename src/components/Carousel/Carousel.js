@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
-import './Carousel.css'; // Стили вынесены в отдельный файл
+import React, { useState, useRef, useCallback } from 'react';
+import './Carousel.css';
 
 const Carousel = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const carouselRef = useRef(null);
+
+  // Минимальное расстояние свайпа для срабатывания
+  const minSwipeDistance = 0;
 
   const handleItemClick = (index) => {
     setActiveIndex(index);
@@ -12,6 +18,66 @@ const Carousel = ({ items }) => {
     setActiveIndex(index);
   };
 
+  const goToNext = useCallback(() => {
+    setActiveIndex((current) => (current + 1) % items.length);
+  }, [items.length]);
+
+  const goToPrev = useCallback(() => {
+    setActiveIndex((current) => (current - 1 + items.length) % items.length);
+  }, [items.length]);
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      goToNext();
+    } else if (isRightSwipe) {
+      goToPrev();
+    }
+  };
+
+  // Обработчики для мыши (для десктопов)
+  const onMouseDown = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.clientX);
+  };
+
+  const onMouseMove = (e) => {
+    if (touchStart === null) return;
+    setTouchEnd(e.clientX);
+  };
+
+  const onMouseUp = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      goToNext();
+    } else if (isRightSwipe) {
+      goToPrev();
+    }
+    
+    // Сброс значений
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
   const getItemClassName = (index) => {
     if (index === activeIndex) return 'carousel-item active';
     if (index === (activeIndex - 1 + items.length) % items.length) return 'carousel-item left';
@@ -19,7 +85,20 @@ const Carousel = ({ items }) => {
     return 'carousel-item hidden';
   };
 
-  // Создаем массив контролов с выбранным элементом на второй позиции
+  const getLabelClassName = (index) => {
+    let className = 'control-label';
+    
+    if (items[index]?.labelClassName) {
+      className += ` ${items[index].labelClassName}`;
+    }
+    
+    if (index === activeIndex) {
+      className += ' active';
+    }
+    
+    return className;
+  };
+
   const getOrderedControls = () => {
     if (items.length <= 1) return items.map((_, index) => index);
     
@@ -30,7 +109,6 @@ const Carousel = ({ items }) => {
       }
     }
     
-    // Вставляем активный индекс на вторую позицию
     controls.splice(1, 0, activeIndex);
     return controls;
   };
@@ -39,13 +117,24 @@ const Carousel = ({ items }) => {
 
   return (
     <div className="carousel-container">
-      <div className="carousel">
+      <div 
+        className="carousel"
+        ref={carouselRef}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        onMouseDown={onMouseDown}
+        onMouseMove={onMouseMove}
+        onMouseUp={onMouseUp}
+        onMouseLeave={onMouseUp} // Если курсор вышел за пределы элемента
+        style={{ cursor: 'grab' }}
+      >
         {items.map((item, index) => (
           <div
             key={index}
             className={getItemClassName(index)}
             onClick={() => handleItemClick(index)}
-            style={{ transition: 'all 0.3s ease' }} // Добавлена анимация
+            style={{ transition: 'all 0.3s ease' }}
           >
             {item.content}
           </div>
@@ -57,7 +146,7 @@ const Carousel = ({ items }) => {
           <label
             key={controlIndex}
             htmlFor={`carousel-radio-${controlIndex}`}
-            className="control-label"
+            className={getLabelClassName(controlIndex)}
           >
             <input
               type="radio"

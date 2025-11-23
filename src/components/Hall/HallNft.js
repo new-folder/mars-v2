@@ -64,7 +64,8 @@ const HallNft = ({ nft }) => {
           </div>
         </div>
       ),
-      label: '+10% speed'
+      label: '+10% speed',
+      labelClassName: "label-mars "
     },
     {
       content: (
@@ -101,7 +102,8 @@ const HallNft = ({ nft }) => {
           </div>
         </div>
       ),
-      label: '+20% speed'
+      label: '+20% speed',
+      labelClassName: "label-mars"
     },
     {
       content: (
@@ -138,7 +140,8 @@ const HallNft = ({ nft }) => {
           </div>
         </div>
       ),
-      label: '+30% speed'
+      label: '+30% speed',      
+      labelClassName: "label-mars"
     }
   ];
 
@@ -179,7 +182,8 @@ const HallNft = ({ nft }) => {
           </div>
         </div>
       ),
-      label: '+10% speed'
+      label: '+10% speed',      
+      labelClassName: "label-moon"
     },
     {
       content: (
@@ -216,7 +220,8 @@ const HallNft = ({ nft }) => {
           </div>
         </div>
       ),
-      label: '+20% speed'
+      label: '+20% speed',      
+      labelClassName: "label-moon"
     },
     {
       content: (
@@ -253,7 +258,8 @@ const HallNft = ({ nft }) => {
           </div>
         </div>
       ),
-      label: '+30% speed'
+      label: '+30% speed',      
+      labelClassName: "label-moon"
     }
   ];
 
@@ -261,14 +267,13 @@ const HallNft = ({ nft }) => {
     return <div>Loading NFT...</div>;
   }
 
-  // Рендерим карусель для Mars и Moon
+  // Рендерим карусель 
   if (nftData.link === 'mars' || nftData.link === 'moon') {
     const carouselItems = nftData.link === 'mars' ? marsCarouselItems : moonCarouselItems;
     
     return (
       <div className={`nft-page`}>
         <div className="back-button arrow-back"></div>
-          {/* Карусель для Mars/Moon */}
           <div className="nft-carousel-section">
             <Carousel items={carouselItems} />
           </div>
