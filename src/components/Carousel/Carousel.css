@@ -52,16 +52,15 @@
 
 .carousel-item h2 {
   text-align: center;
+  margin-top: 0;
 }
 
 .carousel-item img {
   max-width: 100%;
-  /* Предотвращаем drag изображений */
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  user-drag: none;
 }
 
 .carousel-item.active {

@@ -1,7 +1,7 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import './Carousel.css';
 
-const Carousel = ({ items }) => {
+const Carousel = ({ items, onActiveIndexChange }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
@@ -9,6 +9,13 @@ const Carousel = ({ items }) => {
 
   // Минимальное расстояние свайпа для срабатывания
   const minSwipeDistance = 0;
+
+  // Уведомляем родительский компонент об изменении активного индекса
+  useEffect(() => {
+    if (onActiveIndexChange) {
+      onActiveIndexChange(activeIndex);
+    }
+  }, [activeIndex, onActiveIndexChange]);
 
   const handleItemClick = (index) => {
     setActiveIndex(index);

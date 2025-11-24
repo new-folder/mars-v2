@@ -1,37 +1,71 @@
 {
   "nfts": [
     {
-      "id": 0,
-      "name": "NFT Name",
-      "fullName": "ELITE MARS CARGO",
-      "bonus": "20% bonus 3x power for the flight",
-      "img": "../images/pilot-pic.jpg",
-      "link": "mars",
-      "speed": "+ 20%",
-      "effect": "3x power for flight",
-      "buy": "false"
-    },
-    {
       "id": 1,
-      "name": "NFT Name",
-      "fullName": "ELITE MOON CARGO",
-      "bonus": "20% bonus 3x power for the flight",
-      "img": "../images/pilot-pic.jpg",
-      "link": "moon",
-      "speed": "+ 20%",
-      "effect": "3x power for flight",
+      "fullName": "Mars NFT",
+      "link": "mars",
+      "effect": "Boost mining",
+      "speed": "10%",
       "buy": "false"
     },
     {
       "id": 2,
-      "name": "NFT Name",
-      "fullName": "ELITE VENUS CARGO",
-      "bonus": "20% bonus 3x power for the flight",
-      "img": "../images/pilot-pic.jpg",
+      "fullName": "Venus NFT",
       "link": "venus",
-      "speed": "+ 20%",
-      "effect": "3x power for flight",
+      "effect": "Boost mining",
+      "speed": "15%",
       "buy": "false"
+    },
+    {
+      "id": 3,
+      "fullName": "Moon NFT",
+      "link": "moon",
+      "effect": "Boost mining",
+      "speed": "20%",
+      "buy": "false"
+    }
+  ],
+  "planetImages": [
+    {
+      "planet": "mars",
+      "images": {
+        "1": "/images/nft/boxes-1.webp",
+        "2": "/images/nft/boxes-2.webp",
+        "3": "/images/nft/boxes-3.webp"
+      }
+    },
+    {
+      "planet": "venus",
+      "images": {
+        "1": "/images/nft/boxes-1.webp",
+        "2": "/images/nft/boxes-2.webp",
+        "3": "/images/nft/boxes-3.webp"
+      }
+    },
+    {
+      "planet": "moon",
+      "images": {
+        "1": "/images/nft/boxes-1.webp",
+        "2": "/images/nft/boxes-2.webp",
+        "3": "/images/nft/boxes-3.webp"
+      }
+    }
+  ],
+  "purchasedNFTs": [
+    {
+      "planet": "mars",
+      "speed": "10%",
+      "image": "/images/nft/purchased-mars-10.jpg"
+    },
+    {
+      "planet": "venus",
+      "speed": "15%",
+      "image": "/images/nft/purchased-venus-15.jpg"
+    },
+    {
+      "planet": "moon",
+      "speed": "20%",
+      "image": "/images/nft/purchased-moon-20.jpg"
     }
   ]
 }
