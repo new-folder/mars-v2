@@ -1,0 +1,197 @@
+.replenish-page {
+    width: 412px;
+    height: 917px;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;  
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('/public/images/hall-bg.webp'); 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.replenish-title {
+    margin-bottom: 8px;
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+}
+
+.replenish-subtitle {
+    margin: 0 auto 35px;
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+}
+
+.replenish-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 35px 24px;
+
+    width: 364px;
+
+    background: #117E7E;
+    border: 1px solid #FFFFFF;
+    box-shadow: 0px 0px 10px #FFFFFF;
+    border-radius: 15px;
+
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+
+}
+
+.replenish-name {
+    margin-bottom: 28px;
+}
+
+.name-title {    
+    height: 24px;
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+
+    color: #FFFFFF;
+    margin-bottom: 8px;
+
+}
+
+.name-input {
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    padding: 8px 16px;
+    gap: 9px 8px;
+
+    width: 314px;
+    height: 68px;
+
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: #000;
+}
+
+    .replenish-agreement {
+        margin-bottom: 28px;
+    }
+
+    .agreement-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 22px 16px;
+
+        width: 314px;
+        height: 330px;
+        overflow-y: scroll;
+
+        background: #FFFFFF;
+        color: #000;
+        border-radius: 10px;
+    }
+
+    .agreement-text P {
+        margin-top: 0;
+    }
+
+    .agreement-accept {
+        display: flex;
+        align-items: center;
+        margin-top: 15px;
+    }
+
+    .agreement-accept input[type="checkbox"] {
+        margin-right: 10px; 
+    }
+
+    .agreement-accept label {
+        cursor: pointer;
+    }
+
+    .replenish-button.active {
+        padding: 12px 26px;
+        margin: 0 auto;
+
+        width: 144.5px;
+        height: 48px;
+
+        background: #10553D;
+        border: 2px solid #FFFFFF;
+        box-shadow: 0px 0px 10px #FFFFFF;
+        border-radius: 15px;
+    }
+
+    .replenish-button:not(.active) {
+        padding: 12px 24px;
+        margin: 0 auto;
+        width: 144.5px;
+        height: 48px;
+
+        background: #10553D;
+        opacity: 0.6;
+        border: 2px solid #FFFFFF;
+        border-radius: 15px;
+        cursor: not-allowed;
+    }
+
+
+    .agreement-accept input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
+        border-radius: 2px;
+        border: 2px solid #117E7E;
+        background-color: transparent;
+        appearance: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+        position: relative;
+        transition: background-color 0.3s ease;
+    }
+
+    .agreement-accept input[type="checkbox"]:checked {
+        background-color: #117E7E;
+        background-image: url(/public/images/agree-checked.webp);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .agreement-accept input[type="checkbox"]:checked::after {
+        content: '';
+        background-image: url(/public/images/agree-checked.webp);
+        position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }

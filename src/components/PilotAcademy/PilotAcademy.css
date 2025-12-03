@@ -1,0 +1,402 @@
+.academy-page {
+    width: 412px;
+    height: 917px;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;  
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('/public/images/hall-bg.webp'); 
+    padding: 20px;
+}
+
+.academy-title {
+    position: absolute;
+    width: 180px;
+    height: 84px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 96px;
+    font-family: 'Roboto Condensed';
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+
+}
+
+.academy-info-block .academy-time {
+  margin-top: 16px;
+  font-family: 'Dotf1';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+}
+
+.academy-elements-container {
+    position: absolute;
+    width: 382px;
+    height: 377px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(50% - 377px/2 - 42px);
+    background: url(/public/images/planet-space-bg.webp);
+    border-radius: 15px;
+
+}
+
+.academy-element {
+    width: 79px;
+    height: 79px;
+    position: absolute;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    top: 149px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+
+.mars {
+    background-image: url('/public/images/view-mars.webp');
+}
+
+.venus {
+    background-image: url('/public/images/view-venus.webp');
+}
+
+.moon {
+    background-image: url('/public/images/view-moon.webp');
+}
+
+.academy-element-active {
+    width: 175px;
+    height: 175px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 101px;
+    filter: drop-shadow(0px 6px 20px rgba(253, 253, 253, 0.7));
+    z-index: 0;
+}
+
+
+.academy-element-side.left {
+  left: 15%;
+  transform: translateX(-50%);
+}
+
+.academy-element-side.right {
+  left: 85%;
+  transform: translateX(-50%);
+}
+
+.academy-info {
+    position: absolute;
+    width: 281px;
+    height: 175px;
+    left: calc(50% - 281px/2 + 0.5px);
+    top: 635px;
+
+    filter: drop-shadow(0px 0px 10px #FFFFFF);
+    padding: 20px 0;
+    background: rgba(17, 126, 126, 1);
+    border: 3px solid #FFFFFF;
+    border-radius: 15px;
+}
+
+.academy-text {
+    margin-bottom: 13px;
+    font-size: 20px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+
+.academy-text-large {
+    margin-bottom: 0;
+    font-size: 32px;
+}
+
+
+/* AcademyNft */
+
+.nft-page {
+    width: 412px;
+    height: 917px;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;  
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('/public/images/hall-room.webp');  
+    padding: 20px;
+}
+
+.nft-container {
+    padding: 32px 24px;
+
+    position: absolute;
+    width: 364px;
+    height: 688px;
+    left: calc(50% - 364px/2);
+    top: calc(50% - 688px/2 + 0.5px);
+
+    border-radius: 15px;
+
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-size: 20px;
+    line-height: 23px;
+    color: #fff;
+
+}
+
+.nft-container::after {
+    content: '';
+    position: absolute;
+    width: 231px;
+    height: 45px;
+    left: calc(50% - 231px/2 + 0.5px);
+    top: calc(50% - 45px/2 - 344px);    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.mars-nft {
+    background: #8F0000;
+    border: 1px solid #FF0000;
+    box-shadow: 0px 0px 10px #FF0000;
+}
+
+.mars-nft::after {
+    background-image: url('/public/images/nft-mars-wings.webp'); 
+}
+
+.moon-nft {
+    background: #003651;
+    border: 1px solid #4D909B;
+    box-shadow: 0px 0px 10px #4D909B;
+}
+
+.moon-nft::after {
+    background-image: url('/public/images/nft-moon-wings.webp'); 
+}
+
+
+.venus-nft {
+    background: #C46900;
+    border: 1px solid #FF8437;
+    box-shadow: 0px 0px 10px #FF8437;
+}
+
+.venus-nft::after {
+    background-image: url('/public/images/nft-venus-wings.webp'); 
+}
+
+
+.nft-container h2 {
+    margin: 0 0 20px;
+    font-size: 32px;
+    line-height: 38px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.mars-nft h2 {    
+    text-shadow:  -2px -2px 0 #690000,  0 -2px 0 #690000,  2px -2px 0 #690000,  -2px 0 0 #690000, 2px 0 0 #690000, -2px 2px 0 #690000, 0 2px 0 #690000, 2px 2px 0 #690000;
+}
+
+.moon-nft h2 {    
+    text-shadow:  -2px -2px 0 #033046,  0 -2px 0 #033046,  2px -2px 0 #033046,  -2px 0 0 #033046, 2px 0 0 #033046, -2px 2px 0 #033046, 0 2px 0 #033046, 2px 2px 0 #033046;
+}
+
+.venus-nft h2 {    
+    text-shadow:  -2px -2px 0 #9E5500,  0 -2px 0 #9E5500,  2px -2px 0 #9E5500,  -2px 0 0 #9E5500, 2px 0 0 #9E5500, -2px 2px 0 #9E5500, 0 2px 0 #9E5500, 2px 2px 0 #9E5500;
+}
+
+.nft-image {
+    margin-bottom: 20px;
+}
+
+.nft-image img {
+    max-width: 100%;
+}
+
+.nft-details h3 {
+    margin: 0 0 20px;
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+
+}
+
+.nft-specs {
+    margin: 0 0 20px;
+}
+
+.nft-specs p {
+    margin: 0;
+    font-size: 20px;
+    line-height: 23px;
+}
+
+.nft-specs .value {
+    font-weight: 700;
+}
+
+.already-purchased {
+    width: 190px;
+    height: 96px;
+    padding-top: 65px;
+    position: absolute;
+    right: 12px;
+    bottom: 26px;
+    transform: rotate(-15deg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.already-purchased p {
+    margin: 0;
+}
+
+.mars-nft .already-purchased {
+    background-image: url('/public/images/approved-mars.webp'); 
+}
+
+.moon-nft .already-purchased {
+    background-image: url('/public/images/approved-moon.webp'); 
+}
+
+.venus-nft .already-purchased {
+    background-image: url('/public/images/approved-venus.webp'); 
+}
+
+.mars-content {
+    background: #8F0000;
+    border: 1px solid #FF0000;
+    box-shadow: 0px 0px 10px #FF0000;
+    border-radius: 15px;
+}
+
+.mars-content::after {
+    content: '';
+    position: absolute;
+    width: 202px;
+    height: 41px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -19px;    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    background-image: url('/public/images/nft-mars-wings.webp'); 
+}
+
+.moon-content {
+    background: #003651;
+    border: 1px solid #062C3F;
+    box-shadow: 0px 0px 10px #4D909B;
+    border-radius: 15px;
+
+}
+
+.moon-content::after {
+    content: '';
+    position: absolute;
+    width: 202px;
+    height: 41px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -19px;    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    background-image: url('/public/images/nft-moon-wings.webp'); 
+}
+
+.venus-content {
+    background: #C46900;
+    border: 1px solid #FF8437;
+    box-shadow: 0px 0px 10px #FF8437;
+    border-radius: 15px;
+}
+
+.venus-content::after {
+    content: '';
+    position: absolute;
+    width: 202px;
+    height: 41px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -19px;    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    background-image: url('/public/images/nft-venus-wings.webp'); 
+}
+
+
+.label-moon {
+  background: #003651;
+  opacity: 0.8;
+  border: 1px solid #003651;
+  box-shadow: 0px 0px 10px #4D909B;
+}
+
+.label-mars {
+  background: #8F0000;
+  opacity: 0.8;
+  border: 1px solid #8F0000;
+  box-shadow: 0px 0px 10px #FF0000;
+}
+
+.label-venus {
+    background: #C46900;
+    opacity: 0.8;
+    border: 1px solid #C46900;
+    box-shadow: 0px 0px 10px #FF8437;
+    border-radius: 15px;
+
+}
+
+.label-mars.active {
+  opacity: 1;
+}
+
+.buy-button {
+    padding: 16px 48px;
+    position: absolute;
+    width: 126px;
+    height: 55px;
+    left: calc(50% - 126px/2);
+    top: 838px;
+    border: 1px solid #FFFFFF;
+    border-radius: 15px;
+    color: #fff;
+}
+
+.mars-button {
+    background-color: #8F0000;
+}
+
+.moon-button {
+    background-color: #003651;
+}
+
+.venus-button {
+    background-color: #C46900;
+}
