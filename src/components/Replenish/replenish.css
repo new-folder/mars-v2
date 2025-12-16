@@ -60,11 +60,12 @@
 
 }
 
-.replenish-name {
+.replenish-amount {
+    position: relative;
     margin-bottom: 28px;
 }
 
-.name-title {    
+.amount-title {    
     height: 24px;
     font-family: 'Roboto Condensed';
     font-style: normal;
@@ -78,120 +79,312 @@
 
 }
 
-.name-input {
+.amount-input {
     border: none;
     outline: none;
     background: none;
     padding: 0;
-    margin: 0;
-    font-family: inherit;
-    font-size: inherit;
-    color: inherit;
+    margin: 0 0 8px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
     padding: 8px 16px;
-    gap: 9px 8px;
 
     width: 314px;
     height: 68px;
 
     background: #FFFFFF;
     box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
+    border-radius: 15px;
     color: #000;
 }
 
-    .replenish-agreement {
-        margin-bottom: 28px;
-    }
+.amount-currency {
+    position: absolute;
+    right: 18px;
+    top: 54px;
+    font-size: 24px;
+    line-height: 24px;
+    color: #000;
+}
 
-    .agreement-text {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 22px 16px;
+.replenish-currency {
+    width: 100%;
+    margin-bottom: 28px;
+}
 
-        width: 314px;
-        height: 330px;
-        overflow-y: scroll;
+.currency-title {
+    height: 24px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
 
-        background: #FFFFFF;
-        color: #000;
-        border-radius: 10px;
-    }
+    color: #FFFFFF;
+    margin-bottom: 8px;
+}
 
-    .agreement-text P {
-        margin-top: 0;
-    }
+/* Стили для CustomSelect */
+.custom-select {
+    position: relative;
+    width: 100%;
+    margin-bottom: 8px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+}
 
-    .agreement-accept {
-        display: flex;
-        align-items: center;
-        margin-top: 15px;
-    }
+.select-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 15px;
+  background-color: white;
+  cursor: pointer;
+  min-height: 56px;
+}
 
-    .agreement-accept input[type="checkbox"] {
-        margin-right: 10px; 
-    }
+.select-header.open {
+  border-radius: 15px 15px 0 0;
+}
 
-    .agreement-accept label {
-        cursor: pointer;
-    }
+.select-header img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
 
-    .replenish-button.active {
-        padding: 12px 26px;
-        margin: 0 auto;
+.select-text {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 2px;
+}
 
-        width: 144.5px;
-        height: 48px;
+.select-header .title {
+  font-size: 18px;
+  color: #000;
+  text-align: left;
+}
 
-        background: #10553D;
-        border: 2px solid #FFFFFF;
-        box-shadow: 0px 0px 10px #FFFFFF;
-        border-radius: 15px;
-    }
+.select-header .subtitle {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  color: #000;
+  text-align: left;
+}
 
-    .replenish-button:not(.active) {
-        padding: 12px 24px;
-        margin: 0 auto;
-        width: 144.5px;
-        height: 48px;
+.select-header .arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
 
-        background: #10553D;
-        opacity: 0.6;
-        border: 2px solid #FFFFFF;
-        border-radius: 15px;
-        cursor: not-allowed;
-    }
+.select-header .arrow img {
+  width: 16px;
+  height: 16px;
+}
+
+.select-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-radius: 0 0 15px 15px;
+  z-index: 10;
+  max-height: 208px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+  padding-right: 4px;
+}
+
+.select-list::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 15px;
+  height: 15px;
+  background: white;
+  border-bottom-right-radius: 15px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.select-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.select-list::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 4px 0;
+}
+
+.select-list::-webkit-scrollbar-thumb:active {
+  background: #fff;
+}
 
 
-    .agreement-accept input[type="checkbox"] {
-        width: 18px;
-        height: 18px;
-        margin-right: 10px;
-        border-radius: 2px;
-        border: 2px solid #117E7E;
-        background-color: transparent;
-        appearance: none;
-        -webkit-appearance: none;
-        cursor: pointer;
-        position: relative;
-        transition: background-color 0.3s ease;
-    }
+.select-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  min-height: 56px;
+}
 
-    .agreement-accept input[type="checkbox"]:checked {
-        background-color: #117E7E;
-        background-image: url(/public/images/agree-checked.webp);
-        background-repeat: no-repeat;
-        background-position: center;
-    }
 
-    .agreement-accept input[type="checkbox"]:checked::after {
-        content: '';
-        background-image: url(/public/images/agree-checked.webp);
-        position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 14px;
-            font-weight: bold;
-        }
+
+.select-item img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.item-text {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 2px;
+}
+
+.select-item .title {
+  font-weight: 600;
+  font-size: 18px;
+  color: #000;
+}
+
+.select-item .subtitle {
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
+  text-align: left;
+}
+
+
+/* cripto address */
+
+.replenish-address {
+    width: 100%;
+    margin-bottom: 28px;
+}
+
+.address-title {
+    height: 24px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    margin-bottom: 8px;   
+}
+
+.address-field {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    align-items: center;
+    padding: 4px 16px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: inset 0px 2px 6px rgba(0, 0, 0, 0.25), inset 0px -2px 6px #FFFFFF;
+    border-radius: 10px;
+    color: #000;
+    text-align: center;
+}
+
+.address-field:hover {
+  opacity: 0.8;
+}
+
+.copied-tooltip {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 1000;
+  animation: fadeInOut 2s ease-in-out;
+}
+
+.copied-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(5px);
+  }
+  15% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  85% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+.replenish-warning {
+    width: 100%;
+    margin-bottom: 28px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.5px;
+
+    color: #FFFFFF;
+}
+
+.replenish-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-confirm {
+    padding: 20px 26px;
+    width: 144.5px;
+    background: #10553D;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0px 0px 10px #FFFFFF;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.button-reset {
+    padding: 20px 26px;
+    width: 144.5px;
+    background: #FFFFFF;
+    border-radius: 15px;
+    text-align: center;
+    color: #10553D;
+}

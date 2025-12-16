@@ -1,23 +1,128 @@
 import React, { useState } from 'react';
 import './replenish.css';
-import CurrencyInput from '../CurrencyInput/CurrencyInput';
+import { NumericFormat } from 'react-number-format';
+
+const currencyOptions = [
+  {
+    id: 1,
+    logo: "/images/cripto/ton.webp",
+    title: "Tether USD",
+    subtitle: "USDT"
+  },
+  {
+    id: 2,
+    logo: "/images/cripto/cat.webp",
+    title: "CatCoin",
+    subtitle: "CAT"
+  },
+  {
+    id: 3,
+    logo: "/images/cripto/tac.webp",
+    title: "TAC",
+    subtitle: "TAC"
+  },
+  {
+    id: 4, 
+    logo: "/images/cripto/not.webp",
+    title: "Notcoin",
+    subtitle: "NOT"
+  },
+  {
+    id: 5,
+    logo: "/images/cripto/ton.webp",
+    title: "TON",
+    subtitle: "TON"
+  }
+];
+
+function CustomSelect({ selected, setSelected }) {
+  const [open, setOpen] = useState(false);
+  
+  const filteredOptions = currencyOptions.filter(option => option.id !== selected.id);
+
+  return (
+    <div className="custom-select">
+      <div className={`select-header ${open ? 'open' : ''}`} onClick={() => setOpen(!open)}>
+        <img src={selected.logo} alt={selected.title} />
+        <div className="select-text">
+          <span className="title">{selected.title}</span>
+          <span className="subtitle">{selected.subtitle}</span>
+        </div>
+        <span className="arrow">
+          {open ? (
+            <img src="/images/select-up.webp" alt="Close" />
+          ) : (
+            <img src="/images/select-down.webp" alt="Expand" />
+          )}
+        </span>
+      </div>
+      {open && (
+        <div className="select-list">
+          {filteredOptions.map((option) => (
+            <div
+              key={option.id}
+              className="select-item"
+              onClick={() => {
+                setSelected(option);
+                setOpen(false);
+              }}
+            >
+              <img src={option.logo} alt={option.title} />
+              <div className="item-text">
+                <span className="title">{option.title}</span>
+                <span className="subtitle">{option.subtitle}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 const Replenish = () => {
-  const [amount, setAmount] = useState('');
-  // Убрали неиспользуемые переменные
-  const [agreementAccepted, setAgreementAccepted] = useState(false);
-
-  const handleAmountChange = (formattedValue, numericValue) => {
-    setAmount(formattedValue);
-    console.log('Formatted:', formattedValue, 'Numeric:', numericValue);
-  };
-
+  const [agreementAccepted] = useState(false);
+  const [selectedCurrency, setSelectedCurrency] = useState(currencyOptions[0]);
+  const [showCopiedTooltip, setShowCopiedTooltip] = useState(false);
+  
+  const fullAddress = "UQADzgycgSyQj1O1iZ0UDLFmE9TNLe2PPVs9-1XuZQ6YzkjQ";
+  
   const handleBack = () => {
     console.log('Back button clicked');
   };
 
-  const handleAgreementChange = (e) => {
-    setAgreementAccepted(e.target.checked);
+  const formatAddress = (address) => {
+    if (address.length <= 22) return address; // Если адрес короткий, не обрезаем
+    
+    const firstPart = address.substring(0, 18);
+    const lastPart = address.substring(address.length - 4);
+    return `${firstPart}...${lastPart}`;
+  };
+
+  const handleCopyAddress = async () => {
+    try {
+      await navigator.clipboard.writeText(fullAddress);
+      setShowCopiedTooltip(true);
+      
+      // Скрываем тултип через 2 секунды
+      setTimeout(() => {
+        setShowCopiedTooltip(false);
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy address: ', err);
+      // Fallback для старых браузеров
+      const textArea = document.createElement('textarea');
+      textArea.value = fullAddress;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      
+      setShowCopiedTooltip(true);
+      setTimeout(() => {
+        setShowCopiedTooltip(false);
+      }, 2000);
+    }
   };
 
   return (
@@ -35,40 +140,59 @@ const Replenish = () => {
       
       <div className="replenish-content">
 
-        <div className='replenish-name'>
-          <div className='name-title'>Amount:</div>     
-          <CurrencyInput 
-            value={amount}
-            onChange={handleAmountChange}
-            placeholder="0"
-            className="name-input"
+        <div className='replenish-amount'>
+          <div className='amount-title'>Amount:</div>     
+          <NumericFormat
+            disabled
+            className="amount-input"
+            thousandSeparator=","
             decimalScale={2}
-            maxLength={15}
+            fixedDecimalScale
+            defaultValue={10000.00}
           />
+          <span className='amount-currency'>
+            USD
+          </span>
+          <div className='amount-recieve'>You will recieve: 10303.16 USDT </div>
         </div>
 
-        <div className='replenish-agreement'>
-            <div className='agreement-title'>User Agreement:</div>    
-            <div className='agreement-text'>
-                <p>Pay an insurance premium of 5% of the amount, and we will lock in the current exchange rate for you. If within the next 24 hours the rate changes to your disadvantage, you will be able to execute the exchange at the favorable rate that was active at the time the insurance was purchased. Pay an insurance premium of 5% of the amount, and we will lock in the current exchange rate for you. If within the next 24 hours the rate changes to your disadvantage, you will be able to execute the exchange at the favorable rate that was active at the time the insurance was purchased. Pay an insurance premium of 5% of the amount, and we will lock in the current exchange rate for you. If within the next 24 hours the rate changes to your disadvantage, you will be able to execute the exchange at the favorable rate that was active at the time the insurance was purchased.</p>
-                
-                <div className="agreement-accept">
-                  <input 
-                    type="checkbox" 
-                    id="agreement-checkbox"
-                    checked={agreementAccepted}
-                    onChange={handleAgreementChange}
-                  />
-                  <label htmlFor="agreement-checkbox">
-                    I accept the User Agreement
-                  </label>
-                </div>
-            </div>  
+        <div className='replenish-currency'>
+          <div className='currency-title'>Currency:</div>     
+          <CustomSelect 
+            selected={selectedCurrency} 
+            setSelected={setSelectedCurrency} 
+          />
+          <div className='currency-recieve'>Exchange rate: 1 USDT = 1.0013 USD</div>
+        </div>
+
+        <div className='replenish-address'>
+          <div className='address-title'>Address:</div> 
+          <div 
+            className='address-field'
+            onClick={handleCopyAddress}
+            style={{ cursor: 'pointer', position: 'relative' }}
+          >
+            {formatAddress(fullAddress)}
+            {showCopiedTooltip && (
+              <div className="copied-tooltip">
+                Address copied
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className='replenish-warning'>
+          Funds will appear in your balance<br /> within a few minutes
         </div>
         
-        <button className={`replenish-button ${agreementAccepted ? 'active' : ''}`}>
-          Start
-        </button>
+        <div className='replenish-buttons'>        
+          <button className={`button-confirm ${agreementAccepted ? 'active' : ''}`}>
+            Сonfirm
+          </button>      
+          <button className={`button-reset ${agreementAccepted ? 'active' : ''}`}>
+            Reset wallet
+          </button>
+        </div>
       </div>
     </div>
   );
